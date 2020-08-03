@@ -9,7 +9,7 @@ class Counter extends React.Component {
     }
 
     increase = () => {
-        this.setState({ number: ++this.state.number })
+        this.setState({number: ++this.state.number})
         this.props['handleIncrease']()
     }
 
@@ -18,7 +18,7 @@ class Counter extends React.Component {
         if (number <= 0) {
             return false
         }
-        this.setState({ number: --number })
+        this.setState({number: --number})
         this.props['handleDecrease']()
     }
 
