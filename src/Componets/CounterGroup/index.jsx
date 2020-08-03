@@ -1,17 +1,31 @@
-import React, { Component } from "react"
+import React from "react"
 import Counter from "../Counter"
 
 class CounterGroup extends React.Component {
-    constructor(props){
+    constructor(props) {
         super(props)
         this.state = {
-            number: props.number
+            number: 1
         }
     }
 
-    render (){
+    inputChange = (event) => {
+        let value = event.target.value;
+        if (value !== '') {
+            console.log(value)
+            this.setState({
+                number: parseInt(value)
+            })
+        }
+    }
+
+    render() {
         return (
-            new Array(this.state.number).fill(0).map((vale, index) => <Counter key={index} />)
+            <div>
+                <span>Number of Counters : </span>
+                <input type="text" value={this.state.number} onChange={event => this.inputChange(event)}/>
+                {new Array(this.state.number).fill(0).map((vale, index) => <Counter key={index}/>)}
+            </div>
         )
     }
 }

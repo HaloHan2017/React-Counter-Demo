@@ -3,9 +3,9 @@ import './App.css';
 import CounterGroup from "./Componets/CounterGroup";
 
 function App() {
-  return (
-    <CounterGroup number={10}/>
-  );
+    return (
+        <CounterGroup/>
+    );
 }
 
-export default App;
+export default App
