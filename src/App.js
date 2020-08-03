@@ -1,10 +1,10 @@
 import React from 'react';
 import './App.css';
-import Counter from "./Componets/Counter";
+import CounterGroup from "./Componets/CounterGroup";
 
 function App() {
   return (
-    <Counter/>
+    <CounterGroup number={10}/>
   );
 }
 
