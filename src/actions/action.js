@@ -3,14 +3,12 @@ export const DECREASE = "DECREASE"
 
 export function increaseAction() {
     return {
-        type: "INCREASE",
-        preload: "increase value"
+        type: "INCREASE"
     }
 }
 
 export function decreaseAction() {
     return {
-        type: "DECREASE",
-        preload: "decrease value"
+        type: "DECREASE"
     }
 }

@@ -1,20 +1,14 @@
-import {decreaseAction, increaseAction} from "../Actions/action";
-import Counter from "../Componets/Counter";
+import {decreaseAction, increaseAction} from "../actions/action";
+import Counter from "../componets/Counter";
 import {connect} from "react-redux";
 
-const mapStateToProps = (state) => {
-    value: state.value
-}
+const mapStateToProps = (state) => ({
+    count: state.count
+})
 
 const mapDispatchToProps = (dispatch) => ({
     onIncreaseClick: () => dispatch(increaseAction()),
     onDecreaseClick: () => dispatch(decreaseAction())
 })
 
-const CounterApp = connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(Counter);
-
-
-export default CounterApp
+export default connect(mapStateToProps, mapDispatchToProps)(Counter)

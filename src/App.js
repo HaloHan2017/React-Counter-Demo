@@ -1,18 +1,25 @@
 import React from 'react';
 import './App.css';
-import CounterGroup from "./Componets/CounterGroup";
-import {createStore} from "redux";
-import changeValue from "./Reducers/reducer";
-import Provider from "react-redux/lib/components/Provider";
 import CounterApp from "./containers/CounterContainers";
-
-const store = createStore(changeValue)
 
 function App() {
     return (
-        <Provider store={store}>
-            <CounterApp/>
-        </Provider>
+        <div className="App">
+            <header className="App-header">
+                <CounterApp/>
+                <p>
+                    Edit <code>src/App.js</code> and save to reload.
+                </p>
+                <a
+                    className="App-link"
+                    href="https://reactjs.org"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Learn React
+                </a>
+            </header>
+        </div>
     );
 }
 
