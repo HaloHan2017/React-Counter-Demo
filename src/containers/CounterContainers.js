@@ -1,14 +1,18 @@
-import {decreaseAction, increaseAction} from "../actions/action";
-import Counter from "../componets/Counter";
+import * as action from "../actions/action";
 import {connect} from "react-redux";
+import CounterGroup from "../componets/CounterGroup";
 
 const mapStateToProps = (state) => ({
-    count: state.count
+    counterArray: state.counterArray,
+    count: state.count,
+    sum: state.sum
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    onIncreaseClick: () => dispatch(increaseAction()),
-    onDecreaseClick: () => dispatch(decreaseAction())
+    changeCounterValue: (data) => dispatch(action.changeCounterValue(data)),
+    calculateSum: () => dispatch(action.calculateSum()),
+    resetCounterArray: () => dispatch(action.resetCounterArray()),
+    changeNumberOfCounters: (number) => dispatch(action.changeNumberOfCounters(number))
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Counter)
+export default connect(mapStateToProps, mapDispatchToProps)(CounterGroup)

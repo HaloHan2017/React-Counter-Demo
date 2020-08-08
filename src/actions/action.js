@@ -1,14 +1,23 @@
-export const INCREASE = "INCREASE"
-export const DECREASE = "DECREASE"
+export const CHANGE_COUNTER_VALUE = "CHANGE_COUNTER_VALUE"
+export const CALCULATE_SUM = "CALCULATE_SUM"
+export const RESET_COUNTER_ARRAY = "RESET_COUNTER_ARRAY"
+export const CHANGE_NUMBER_OF_COUNTERS = "CHANGE_NUMBER_OF_COUNTERS"
 
-export function increaseAction() {
-    return {
-        type: "INCREASE"
-    }
-}
+export const changeCounterValue = (data) => ({
+    type: "CHANGE_COUNTER_VALUE",
+    data
+})
 
-export function decreaseAction() {
-    return {
-        type: "DECREASE"
-    }
-}
+export const calculateSum = () => ({
+    type: "CALCULATE_SUM"
+})
+
+export const resetCounterArray = () => ({
+    type: "RESET_COUNTER_ARRAY"
+})
+
+export const changeNumberOfCounters = (number) => ({
+    type: "CHANGE_NUMBER_OF_COUNTERS",
+    number
+})
+

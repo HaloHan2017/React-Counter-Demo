@@ -4,49 +4,32 @@ import Counter from "../Counter"
 class CounterGroup extends React.Component {
     constructor(props) {
         super(props)
-        this.state = {
-            number: 1,
-            total: 0
-        }
     }
 
-    inputChange = (event) => {
-        let value = event.target.value;
-        if (value !== '') {
-            this.setState({
-                number: parseInt(value)
-            })
-            if (value === '0') {
-                this.setState({
-                    total: 0
-                })
-            }
-        }
+    handleChangeCounterValue = (value, index) => {
+        this.props.changeCounterValue({value, id: index})
+        this.props.calculateSum()
     }
 
-    handleIncrease = () => {
-        this.setState({
-            total: this.state.total + 1
-        })
-    }
-
-    handleDecrease = () => {
-        this.setState({
-            total: this.state.total - 1
-        })
+    changeTheNumberOfCounters = (event) => {
+        let numberOfCounters = event.target.value > 0 ? event.target.value : 0;
+        this.props.changeNumberOfCounters(numberOfCounters)
+        this.props.resetCounterArray()
     }
 
     render() {
         return (
             <div>
                 <span>Total &nbsp;&nbsp;&nbsp;of &nbsp;&nbsp;&nbsp;Counters :</span>
-                <input type="text" value={this.state.total}/>
+                <input type="text" value={this.props.sum}/>
                 <br/>
                 <span>Number of Counters : </span>
-                <input type="text" value={this.state.number} onChange={event => this.inputChange(event)}/>
-                {new Array(this.state.number).fill(0).map((vale, index) => <Counter key={index}
-                                                                                    handleIncrease={this.handleIncrease}
-                                                                                    handleDecrease={this.handleDecrease}/>)}
+                <input type="text" value={this.props.counterArray.length} onChange={this.changeTheNumberOfCounters}/>
+                {this.props.counterArray.map((value, index) =>
+                    <Counter value={value} key={index}
+                             changed={(value) => {
+                                 this.handleChangeCounterValue(value, index)
+                             }}/>)}
             </div>
         )
     }
